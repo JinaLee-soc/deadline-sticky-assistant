@@ -6,3 +6,13 @@ assert.equal(M.score(p),11);assert.deepEqual(M.totals([p,{...p,steps:Array(11).f
 const s={version:1,language:'ko',projects:[p],todos:[]};assert.ok(M.valid(s));assert.ok(!M.valid({...s,projects:[{...p,steps:Array(10).fill(false)}]}));assert.equal(M.level(M.target(s,'2026-09-12'),'2026-09-12'),0);assert.equal(M.level(M.target(s,'2026-09-15'),'2026-09-15'),1);p.delays=2;assert.equal(M.level(M.target(s,'2026-09-15'),'2026-09-15'),2);p.steps.fill(true);assert.equal(M.target(s),undefined);
 require('../Resources/strings.js');assert.deepEqual(Object.keys(DeskStrings.en).sort(),Object.keys(DeskStrings.ko).sort());
 console.log('PASS: canonical 11 stages, scores, dates, validation, escalation, completion and locale parity');
+const custom={id:'custom',name:'Qualitative',priority:2,steps:[true,...Array(10).fill(false)],last:'2026-09-12',delays:0,excluded:[true,true,...Array(9).fill(false)],stageNames:['','Interviews',...Array(9).fill('')]};
+assert.equal(M.score(custom),9);assert.equal(M.nextStage(custom),2);assert.equal(M.stageName(custom,1,'ko'),'Interviews');assert.equal(M.stageName(custom,2,'ko'),'분석');
+custom.excluded[0]=false;assert.equal(custom.steps[0],true);assert.equal(M.score(custom),9);
+custom.excluded.fill(true);assert.equal(M.nextStage(custom),-1);assert.equal(M.score(custom),0);
+const original={version:1,language:'en',projects:[custom],todos:[]};assert.ok(M.valid(original));assert.deepEqual(M.context(original).projects[0].stages.map(s=>s.status),Array(11).fill('notApplicable'));
+for(const bad of [null,{}, {...original,projects:[null]}, {...original,projects:[{...custom,excluded:[true]}]}, {...original,chat:[null]}, {...original,projects:[custom,custom]}])assert.equal(M.valid(bad),false);
+const tasks=Array.from({length:5},(_,i)=>({id:'t'+i,name:'Task '+i,priority:2,last:'2026-09-12',delays:0,done:false,due:`2026-09-${13+i}`,project:'custom'}));
+const desk={...original,todos:tasks};assert.equal(M.compact(desk,'2026-09-12').picks.length,3);assert.equal(M.compact(desk,'2026-09-12').deadlines.length,5);tasks[0].done=true;assert.equal(M.compact(desk,'2026-09-12').deadlines[0].id,'t1');
+assert.ok(M.valid(JSON.parse(JSON.stringify({...desk,chat:[{role:'user',text:'hello'}]}))));
+console.log('PASS: legacy data, N/A and restoration, localized custom names, context, compact priorities, deadline completion, malformed data');
