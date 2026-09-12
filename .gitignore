@@ -6,3 +6,11 @@ dist/
 credentials*.json
 *token*.json
 .env*
+# Local planner/chat data and developer connection artifacts
+desk.json
+desk.previous.json
+conversation*.json
+auth.json
+.backups/
+*.log
+*.mode
