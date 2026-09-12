@@ -1,0 +1,8 @@
+.build/
+dist/
+*.app/
+.DS_Store
+*.zip
+credentials*.json
+*token*.json
+.env*
