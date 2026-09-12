@@ -32,8 +32,9 @@ jobs:
       - name: Verify bundle
         run: |
           codesign --verify --deep --strict 'dist/Research Desk.app'
-          lipo -verify_arch arm64 x86_64 'dist/Research Desk.app/Contents/MacOS/ResearchDesk'
-          pkgutil --payload-files dist/Research-Desk-macOS-universal.pkg
+          lipo 'dist/Research Desk.app/Contents/MacOS/ResearchDesk' -verify_arch arm64 x86_64
+          pkgutil --expand-full dist/Research-Desk-macOS-universal.pkg .build/installer-check
+          codesign --verify --deep --strict '.build/installer-check/component.pkg/Payload/Applications/Research Desk.app'
       - uses: actions/upload-artifact@v4
         with:
           name: Research-Desk-macOS-universal
