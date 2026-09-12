@@ -1,13 +1,15 @@
-# Beaver artwork
+# Cat artwork
 
-The beaver character was created with the help of [IP as Logo](https://github.com/s1dashu/ip-as-logo-skill) by s1dashu, using its mascot-design and prompting workflow with Codex's built-in image generation. The owner selected a generated reference, and the three included poses were subsequently generated from that reference. No Claude/Clawd artwork or sprites are included. The workflow credit does not imply endorsement by the skill's author.
+The white cat assistant was created using Codex's built-in image generation and refined through Jina Lee's art direction. The approved three-pose sheet is included as `Resources/cat-poses.png`. CSS displays each panel without modifying the source artwork.
 
-Shared prompt: preserve the reference's smooth illustration style, dark walnut body and belly, cream cheeks, small dark eyes, triangular nose, round ears and paddle tail on the viewer's left. Use a genuinely transparent background, no text, props, or shadow.
+Design prompt: a minimal white cat with clean charcoal outlines and small dot eyes. The calm pose has a curled tail hiding one front paw and a centered foreleg divider; the reminder pose raises one paw; the urgent pose leans forward over a ledge. Apricot, yellow, and red backgrounds indicate increasing urgency and are included in the image.
 
-Pose variants: seated with hands together; leaning forward and pointing; raising one hand and one foot to request urgent attention. The 256-pixel files are display-size copies; original generation files are not part of this package. UI background colors are drawn by the app rather than baked into the images.
+The earlier beaver exploration used [IP as Logo](https://github.com/s1dashu/ip-as-logo-skill) by s1dashu. This historical workflow credit does not claim that its author created or endorsed the final cat. No Claude/Clawd artwork or sprites are used. Legacy beaver files remain in the source repository but are not used by the current UI or copied by the build.
 
 ## Free reuse permission
 
-To the extent the repository owner holds rights in the included artwork, anyone may freely use, copy, modify, redistribute, and sell `Resources/beaver-0.png`, `Resources/beaver-1.png`, and `Resources/beaver-2.png`, including in commercial projects, without asking permission or paying a fee. Attribution is appreciated but not required. The artwork is provided as-is, without warranties. This permission covers these artwork files only, not the application source code, third-party assets, or any suggestion of endorsement.
+To the extent the repository owner holds rights in the artwork, anyone may freely use, copy, modify, redistribute, and sell `Resources/cat-poses.png`, including commercially, without asking permission or paying a fee. Attribution is appreciated but not required. The same permission continues to cover `Resources/beaver-0.png`, `Resources/beaver-1.png`, and `Resources/beaver-2.png`.
 
-Suggested optional credit: “Beaver mascot created with the help of s1dashu's IP as Logo skill and Codex image generation.”
+The artwork is provided as-is, without warranties. This permission covers these artwork files only, not third-party assets or any suggestion of endorsement. Application code and documentation remain under the MIT license in [LICENSE](LICENSE).
+
+Suggested optional credit: “Cat assistant created by Jina Lee with Codex image generation.”

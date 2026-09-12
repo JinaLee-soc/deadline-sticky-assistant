@@ -10,4 +10,8 @@ main{padding:23px 25px 25px;max-width:1550px;margin:auto}.memo{display:flex;gap:
 footer{padding:12px 25px;border-top:1px solid var(--line);font-size:11px;background:var(--bg);display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}#error{margin:18px;padding:16px;color:#b00020;border:1px solid #dfb5b5;background:#fff5f5}#welcome{padding:40px;display:grid;gap:20px;max-width:600px}
 @media(max-width:700px){header{flex-wrap:wrap;padding:15px 16px 0;gap:12px}header h1{padding-bottom:6px}nav{order:3;flex-basis:100%;flex-wrap:wrap;gap:16px}nav button{padding-bottom:11px}#language{margin-bottom:6px}main{padding:19px 16px}.memo{padding:10px;gap:9px}.memo #pet{width:55px;height:60px}#nag{font-size:13px}.toolbar #metrics{width:100%;order:3}.todo{gap:12px}.todo label{font-size:14px}.due{font-size:20px}footer{padding:12px 16px}}
 .memo,#editor{background:var(--paper)}
+.memo #pet{height:74px;background-image:url('cat-poses.png');background-size:340.44% 115.65%;background-position:3.26% 50%;background-repeat:no-repeat}
+.memo #pet[data-level="1"]{background-image:url('cat-poses.png');background-size:340.44% 115.65%;background-position:50% 50%;background-repeat:no-repeat}
+.memo #pet[data-level="2"]{background-image:url('cat-poses.png');background-size:340.44% 115.65%;background-position:96.74% 50%;background-repeat:no-repeat}
+@media(max-width:700px){.memo #pet{height:54px}}
 @media(pointer:coarse){button{min-height:44px}}

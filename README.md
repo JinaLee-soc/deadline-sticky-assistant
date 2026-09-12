@@ -1,6 +1,6 @@
 # Research Desk
 
-A small, local-first macOS research planner with an eleven-stage project matrix, a separate deadline checklist, and a beaver assistant. English and Korean are supported throughout the interface. This is an early source-build release, not a signed or notarized App Store application.
+A small, local-first macOS research planner with an eleven-stage project matrix, a separate deadline checklist, and a cat assistant. English and Korean are supported throughout the interface. This is an early source-build release, not a signed or notarized App Store application.
 
 ## Install
 
@@ -43,7 +43,7 @@ Use **+ Task / deadline** for reviews, applications, messages and other to-dos. 
 
 Linked deadlines appear as supplementary project information. Completing a deadline never automatically completes a project stage, and vice versa. To-do items never contribute to project scores. Dates are date-only in the Mac's local calendar; school-specific deadline times and time zones are not implemented in this edition.
 
-## Beaver reminders and conversation
+## Cat reminders and conversation
 
 The assistant considers unfinished projects and to-dos together. The current deterministic rule orders by priority and then deadline. Recorded inactivity, approaching deadlines and explicit postponements increase reminder intensity, capped at three levels:
 
@@ -101,6 +101,6 @@ The app uses AppKit and WKWebView with local HTML/CSS/JavaScript. There are no t
 
 ## Artwork and licensing
 
-The beaver mascot was created with the help of [IP as Logo](https://github.com/s1dashu/ip-as-logo-skill) by s1dashu and Codex image generation. The included character images are free to reuse, modify, and redistribute, including commercially. Attribution is appreciated but not required; see [ASSETS.md](ASSETS.md) for the permission and provenance details.
+The white cat mascot was created with Codex image generation and refined through Jina Lee's art direction. The earlier mascot exploration used [IP as Logo](https://github.com/s1dashu/ip-as-logo-skill) by s1dashu; this workflow credit does not imply that its author created or endorsed the final cat. The included character images are free to reuse, modify, and redistribute, including commercially. Attribution is appreciated but not required; see [ASSETS.md](ASSETS.md) for the permission and provenance details.
 
-The application code and documentation are licensed under the [MIT License](LICENSE), copyright 2026 Jina Lee. The included beaver images also retain the separate, attribution-optional reuse permission in [ASSETS.md](ASSETS.md). This repository is maintained separately from the private research workspace.
+The application code and documentation are licensed under the [MIT License](LICENSE), copyright 2026 Jina Lee. The included cat artwork also retain the separate, attribution-optional reuse permission in [ASSETS.md](ASSETS.md). This repository is maintained separately from the private research workspace.
