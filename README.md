@@ -103,4 +103,4 @@ The app uses AppKit and WKWebView with local HTML/CSS/JavaScript. There are no t
 
 The beaver mascot was created with the help of [IP as Logo](https://github.com/s1dashu/ip-as-logo-skill) by s1dashu and Codex image generation. The included character images are free to reuse, modify, and redistribute, including commercially. Attribution is appreciated but not required; see [ASSETS.md](ASSETS.md) for the permission and provenance details.
 
-An open-source license for the application code has not yet been selected. The artwork permission does not license the code. This repository is maintained separately from the private research workspace.
+The application code and documentation are licensed under the [MIT License](LICENSE), copyright 2026 Jina Lee. The included beaver images also retain the separate, attribution-optional reuse permission in [ASSETS.md](ASSETS.md). This repository is maintained separately from the private research workspace.
