@@ -107,6 +107,4 @@ The application code and documentation are licensed under **Apache License 2.0 w
 
 Personal, research, and internal business use, modification, and free redistribution are permitted subject to the license. The Commons Clause restricts providing a paid product or service whose value derives entirely or substantially from this software. Its definition of sale can include related hosting, consulting, or support; it is not a blanket prohibition on every commercial product that uses a component of this code. The license text controls. Requests for a separate sales permission can be raised through this repository.
 
-**Transition (2026-09-12):** These combined terms apply from the license-transition commit onward. Earlier versions through commit `252e037ee4c141602d26aac3c84afe83896c1bbb` were published under MIT. Those existing permissions are not revoked; this change does not retroactively prohibit selling the earlier MIT-licensed code.
-
 The cat artwork remains separately free to reuse, modify, redistribute, and sell, with optional attribution, under [ASSETS.md](ASSETS.md). The Commons Clause does not apply to that artwork. This repository is maintained separately from the private research workspace.
