@@ -101,6 +101,6 @@ The app uses AppKit and WKWebView with local HTML/CSS/JavaScript. There are no t
 
 ## Artwork and licensing
 
-The white cat mascot was created with Codex image generation and refined through Jina Lee's art direction. The earlier mascot exploration used [IP as Logo](https://github.com/s1dashu/ip-as-logo-skill) by s1dashu; this workflow credit does not imply that its author created or endorsed the final cat. The included character images are free to reuse, modify, and redistribute, including commercially. Attribution is appreciated but not required; see [ASSETS.md](ASSETS.md) for the permission and provenance details.
+The white cat mascot was created with Codex image generation and refined through Jina Lee's art direction. The included character images are free to reuse, modify, and redistribute, including commercially. Attribution is appreciated but not required; see [ASSETS.md](ASSETS.md) for the permission and provenance details.
 
-The application code and documentation are licensed under the [MIT License](LICENSE), copyright 2026 Jina Lee. The included cat artwork also retain the separate, attribution-optional reuse permission in [ASSETS.md](ASSETS.md). This repository is maintained separately from the private research workspace.
+The application code and documentation are licensed under the [MIT License](LICENSE), copyright 2026 Jina Lee. The included cat artwork also retains the separate, attribution-optional reuse permission in [ASSETS.md](ASSETS.md). This repository is maintained separately from the private research workspace.
