@@ -8,6 +8,6 @@ Design prompt: a minimal white cat with clean charcoal outlines and small dot ey
 
 To the extent the repository owner holds rights in the artwork, anyone may freely use, copy, modify, redistribute, and sell `Resources/cat-poses.png`, including commercially, without asking permission or paying a fee. Attribution is appreciated but not required.
 
-The artwork is provided as-is, without warranties. This permission covers these artwork files only, not third-party assets or any suggestion of endorsement. Application code and documentation remain under the MIT license in [LICENSE](LICENSE).
+The artwork is provided as-is, without warranties. This permission covers these artwork files only, not third-party assets or any suggestion of endorsement. Application code and documentation are separately covered by Apache License 2.0 with Commons Clause License Condition v1.0 in [LICENSE](LICENSE). The Commons Clause does not apply to the cat artwork.
 
 Suggested optional credit: “Cat assistant created by Jina Lee with Codex image generation.”
