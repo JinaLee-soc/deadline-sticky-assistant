@@ -16,3 +16,10 @@ const tasks=Array.from({length:5},(_,i)=>({id:'t'+i,name:'Task '+i,priority:2,la
 const desk={...original,todos:tasks};assert.equal(M.compact(desk,'2026-09-12').picks.length,3);assert.equal(M.compact(desk,'2026-09-12').deadlines.length,5);tasks[0].done=true;assert.equal(M.compact(desk,'2026-09-12').deadlines[0].id,'t1');
 assert.ok(M.valid(JSON.parse(JSON.stringify({...desk,chat:[{role:'user',text:'hello'}]}))));
 console.log('PASS: legacy data, N/A and restoration, localized custom names, context, compact priorities, deadline completion, malformed data');
+const idleTarget={item:{last:'2026-09-12',delays:0},due:Infinity};
+assert.deepEqual(Array.from({length:10},(_,d)=>M.level(idleTarget,`2026-09-${12+d}`)),[0,0,0,1,1,1,2,2,2,2]);
+assert.equal(M.level({item:{last:'2026-09-21',delays:0},due:Infinity},'2026-09-21'),0);
+assert.equal(M.level({item:{last:'2026-09-21',delays:0},due:1},'2026-09-21'),2);
+const rotation=Array.from({length:4},(_,d)=>M.reminderLine(DeskStrings.ko.lines,0,`2026-09-${12+d}`));
+assert.equal(new Set(rotation.slice(0,3)).size,3);assert.equal(rotation[0],rotation[3]);
+console.log('PASS: daily phrase rotation, 3/6-day escalation, cap, progress reset and urgent-deadline protection');

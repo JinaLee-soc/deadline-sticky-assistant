@@ -53,7 +53,7 @@ The assistant considers unfinished projects and to-dos together. The current det
 - Yellow: focus requested, pointing pose.
 - Red: urgent attention, raised-hand pose.
 
-Messages rotate daily from a small localized library. Completing a stage records progress and resets that project's postponement count; completed items leave the reminder queue. The app measures **days without recorded progress**, not whether you actually worked. It does not monitor your screen, keyboard, files or calendar. Urgency near a deadline can remain high even after progress.
+Messages rotate daily through three localized phrases per intensity level (not a new AI generation each day). Korean reminders and Codex replies use respectful polite speech, including firm reminders. With no newly recorded progress, reminder intensity rises after three days and again after six days, capped at level three; approaching deadlines and repeated postponements can increase it sooner. Completing a stage records progress and resets that project's postponement count; completed items leave the reminder queue. The app measures **days without recorded progress**, not whether you actually worked. It does not monitor your screen, keyboard, files or calendar. Urgency near a deadline can remain high even after progress.
 
 ## Floating small window
 

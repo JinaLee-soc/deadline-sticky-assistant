@@ -19,12 +19,13 @@ function valid(s){
 }
 function candidates(s,now=today()){return [...s.projects.filter(p=>score(p)).map(p=>({item:p,kind:'projects',due:Math.min(Infinity,...s.todos.filter(t=>t.project===p.id&&!t.done).map(t=>days(t.due,now)))})),...s.todos.filter(t=>!t.done).map(item=>({item,kind:'notes',due:days(item.due,now)}))].sort((a,b)=>a.item.priority-b.item.priority||a.due-b.due)}
 const target=(s,now=today())=>candidates(s,now)[0];
-function level(t,now=today()){if(!t)return 0;const idle=Math.max(0,ordinal(now)-ordinal(t.item.last));return Math.min(2,(t.due<=2?2:t.due<=5?1:0)+(idle>=3?1:0)+(t.item.delays>=2?1:0))}
+function level(t,now=today()){if(!t)return 0;const idle=Math.max(0,ordinal(now)-ordinal(t.item.last));return Math.min(2,(t.due<=2?2:t.due<=5?1:0)+Math.floor(idle/3)+(t.item.delays>=2?1:0))}
+function reminderLine(lines,intensity,now=today()){const choices=lines[intensity];return choices[ordinal(now)%choices.length]}
 function compact(s,now=today()){
  const picks=candidates(s,now).filter(c=>c.kind!=='projects'||!s.todos.some(t=>t.project===c.item.id&&!t.done)).slice(0,3);
  const deadlines=s.todos.filter(t=>!t.done&&t.due&&days(t.due,now)<=30).sort((a,b)=>days(a.due,now)-days(b.due,now));
  return {picks,deadlines};
 }
 function context(s,now=today()) {return {today:now,language:s.language,projects:s.projects.map(p=>({name:p.name,priority:p.priority,lastRecordedProgress:p.last,postponements:p.delays,remaining:score(p),stages:p.steps.map((done,i)=>({name:stageName(p,i,s.language),status:!applicable(p,i)?'notApplicable':done?'done':'unfinished'}))})),tasks:s.todos.map(t=>({name:t.name,priority:t.priority,due:t.due||null,done:t.done,project:s.projects.find(p=>p.id===t.project)?.name||null})),scoreMeaning:'Number of applicable unfinished stages, not hours or quality'};}
-g.DeskModel={applicable,stageName,nextStage,candidates,compact,context,stages,today,ordinal,days,score,totals,valid,target,level};if(typeof module!=='undefined')module.exports=g.DeskModel;
+g.DeskModel={applicable,stageName,nextStage,candidates,compact,context,reminderLine,stages,today,ordinal,days,score,totals,valid,target,level};if(typeof module!=='undefined')module.exports=g.DeskModel;
 })(globalThis);
