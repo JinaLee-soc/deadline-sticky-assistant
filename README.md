@@ -99,4 +99,8 @@ node --check Resources/app.js
 
 The app uses AppKit and WKWebView with local HTML/CSS/JavaScript. There are no third-party JavaScript packages. Node.js is only used for development tests. Build output goes to `dist/`, ignored by Git. Do not commit the generated app, runtime data, credentials, logs containing private content, or personal integration configuration.
 
-Before publishing, review the staged file list and choose a license for the code and artwork. No open-source license has been selected yet; public visibility alone does not grant reuse rights. See `ASSETS.md` for image provenance. This repository is intended to be published separately from any private research workspace.
+## Artwork and licensing
+
+The beaver mascot was created with the help of [IP as Logo](https://github.com/s1dashu/ip-as-logo-skill) by s1dashu and Codex image generation. The included character images are free to reuse, modify, and redistribute, including commercially. Attribution is appreciated but not required; see [ASSETS.md](ASSETS.md) for the permission and provenance details.
+
+An open-source license for the application code has not yet been selected. The artwork permission does not license the code. This repository is maintained separately from the private research workspace.
