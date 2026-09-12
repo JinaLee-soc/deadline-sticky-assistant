@@ -1,0 +1,43 @@
+name: Build macOS installer
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '*.swift'
+      - Info.plist
+      - Resources/**
+      - build.sh
+      - package.sh
+      - .github/workflows/macos-installer.yml
+  pull_request:
+    paths:
+      - '*.swift'
+      - Info.plist
+      - Resources/**
+      - build.sh
+      - package.sh
+      - .github/workflows/macos-installer.yml
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/model.cjs
+      - run: zsh package.sh
+      - name: Verify bundle
+        run: |
+          codesign --verify --deep --strict 'dist/Research Desk.app'
+          lipo -verify_arch arm64 x86_64 'dist/Research Desk.app/Contents/MacOS/ResearchDesk'
+          pkgutil --payload-files dist/Research-Desk-macOS-universal.pkg
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Research-Desk-macOS-universal
+          path: |
+            dist/Research-Desk-macOS-universal.pkg
+            dist/SHA256SUMS.txt
+          if-no-files-found: error

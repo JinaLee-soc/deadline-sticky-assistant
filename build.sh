@@ -8,8 +8,18 @@ if [[ "${1:-}" == '--qa' ]]; then
   swift_flags=(-D RESEARCH_DESK_QA)
 fi
 bundle="dist/$app_name.app"
+rm -rf -- "$bundle"
 mkdir -p .build "$bundle/Contents/MacOS" "$bundle/Contents/Resources"
-xcrun swiftc -swift-version 5 -module-cache-path .build/module-cache "${swift_flags[@]}" main.swift CodexChat.swift -o "$bundle/Contents/MacOS/ResearchDesk" -framework AppKit -framework WebKit
+architectures=("${ARCHS:-$(uname -m)}")
+architectures=(${=architectures})
+binaries=()
+for arch in "${architectures[@]}"; do
+  case "$arch" in arm64|x86_64) ;; *) print -u2 "Unsupported architecture: $arch"; exit 1 ;; esac
+  binary=".build/ResearchDesk-$arch"
+  xcrun swiftc -O -target "$arch-apple-macosx12.0" -swift-version 5 -module-cache-path .build/module-cache "${swift_flags[@]}" main.swift CodexChat.swift -o "$binary" -framework AppKit -framework WebKit
+  binaries+=("$binary")
+done
+xcrun lipo -create "${binaries[@]}" -output "$bundle/Contents/MacOS/ResearchDesk"
 cp Info.plist "$bundle/Contents/Info.plist"
 if [[ "${1:-}" == '--qa' ]]; then
   /usr/libexec/PlistBuddy -c 'Set :CFBundleIdentifier org.researchdesk.share.qa' "$bundle/Contents/Info.plist"

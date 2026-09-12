@@ -1,17 +1,30 @@
 # Research Desk
 
-A small, local-first macOS research planner with customizable project stages, a floating companion window, a separate deadline checklist, and a cat assistant with optional Codex conversation. English and Korean are supported throughout the interface. This is an early source-build release, not a signed or notarized App Store application.
+A small, local-first macOS research planner with customizable project stages, a floating companion window, a separate deadline checklist, and a cat assistant with optional Codex conversation. English and Korean are supported throughout the interface. Prebuilt macOS installers are available. This early release is ad-hoc signed; it is not Apple Developer ID signed or notarized.
 
 ## Install
 
-Requirements: macOS 12 or later and Apple's Xcode Command Line Tools. Install the tools with `xcode-select --install` if needed. No paid API key, Node.js runtime, cloud account, or subscription is needed for the planner. Optional AI conversation requires an installed Codex app or CLI, a ChatGPT login with Codex access, and internet access; your account usage limits apply.
+### Download the Mac app / 맥 앱 다운로드
 
-1. Download the repository ZIP from GitHub and extract it.
-2. Open Terminal in the extracted folder and run `zsh Install.command` (or double-click the executable command file).
-3. Choose **English** or **한국어** in the installer.
-4. The installer builds locally, copies the app to `~/Applications/Research Desk.app`, and opens it.
+**[Download Research Desk for macOS](https://github.com/JinaLee-soc/deadline-sticky-assistant/releases/latest/download/Research-Desk-macOS-universal.pkg)** · macOS 12+ · Apple Silicon & Intel
 
-The installer will not replace an existing app. For an update, quit Research Desk, rename the previous application as a backup, then run the installer again. The data folder is separate and is retained. Builds are for the current Mac architecture, not universal binaries. Signing is ad hoc, not Developer ID signing. Review the source before building. Do not disable Gatekeeper or system-wide security protections to install it.
+1. Download the `.pkg` file and double-click it. Follow the macOS Installer steps.
+2. Open **Applications → Research Desk** and choose **English** or **한국어**.
+3. For updates, quit Research Desk before installing. Your projects and chats are retained in `~/Library/Application Support/Research Desk Share/`.
+
+**한국어:** 위 링크에서 `.pkg`를 다운로드하고 더블클릭해 설치하세요. 설치 후 **응용 프로그램 → Research Desk**를 열면 언어를 선택할 수 있습니다. Xcode·터미널·개발 도구는 필요하지 않습니다. 업데이트 전 앱을 종료하세요. 기존 프로젝트와 대화 기록은 유지됩니다.
+
+Because this release is not notarized, macOS may block the installer or the app on first open. After trying to open the downloaded file, use **System Settings → Privacy & Security → Open Anyway** for that specific file, if available. The app may require the same one-time approval after installation. On older macOS versions this is under **System Preferences → Security & Privacy**. Managed Macs may require an administrator. See [Apple’s opening instructions](https://support.apple.com/en-us/102445). Do not disable Gatekeeper or system-wide security protections.
+
+**보안 안내:** 아직 Apple 공증을 받지 않아 처음 열 때 차단될 수 있습니다. 열기를 시도한 뒤 **시스템 설정 → 개인정보 보호 및 보안 → 확인 없이 열기**에서 해당 파일을 허용하세요. 설치 파일과 설치된 앱에 각각 한 번 필요할 수 있습니다. 보안 기능 전체를 끄지 마세요.
+
+No paid API key, Node.js runtime, cloud account, or subscription is needed for the planner. Optional AI conversation requires an installed Codex app or CLI, a ChatGPT login with Codex access, and internet access; your account usage limits apply.
+
+### Build from source (optional)
+
+Developers need Apple's Xcode Command Line Tools (`xcode-select --install`). Run `zsh Install.command` to build for this Mac and install to `~/Applications`; this source installer will not replace an existing app. If switching from a source installation to the downloaded package, keep only the desired app in use to avoid opening an older copy.
+
+Run `zsh package.sh` to build the universal installer and `dist/SHA256SUMS.txt`. Release builds explicitly target macOS 12 and include both `arm64` and `x86_64`. The installer installs only the app in `/Applications`, contains no installation scripts, and does not bundle personal data or credentials.
 
 Change language anytime using the selector at the top right. Direct first launch without the installer shows a language chooser. Project names, task text, stage states and identifiers do not change when switching languages.
 

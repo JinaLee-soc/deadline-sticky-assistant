@@ -16,3 +16,13 @@ Verified on macOS on 2026-09-12 with Codex CLI 0.153.4. Only synthetic project/t
 The QA build uses its own bundle ID and a fixed disposable `/private/tmp/research-desk-share-qa` folder. Test data, conversations, credentials and screenshots are not included in the repository. A matching existing local source checkout was used for the final delivery.
 
 These checks do not establish compatibility with every Codex version or custom configuration, other Mac architectures, or macOS releases. The app remains a source-build, ad-hoc-signed release, not a Developer ID notarized distribution. No calendar, wiki or sync integration was added.
+
+## 0.2.1 installer verification (2026-09-12)
+
+- `zsh package.sh` built an installer with a universal `arm64`/`x86_64` app, explicitly targeting macOS 12.0. An initial package-build failure came from adding an already generated `BundleOverwriteAction`; setting the existing key fixed it, and the exact build then passed.
+- Expanded the final `.pkg` with `pkgutil --expand-full`; `codesign --verify --deep --strict` passed on the extracted app and `lipo -archs` returned both architectures.
+- Inspected package metadata: only `/Applications/Research Desk.app`, version 0.2.1/build 3, no install scripts, no relocation, and no user data or credentials. Existing app bundles are upgraded; the separate Application Support data directory is outside the payload.
+- `installer -showChoicesXML -pkg dist/Research-Desk-macOS-universal.pkg -target /` passed outside the shell sandbox, recognizing the selected component and payload. No system-wide installation was performed.
+- `node tests/model.cjs`, JS syntax checks for the main and mini UI, and all eight offline Swift chat scenarios passed.
+- Launched the extracted app on Apple Silicon/macOS 26.6.2 with an isolated empty data directory; it remained running without startup output. Visual inspection was blocked by the locked desktop, so this is a process-launch smoke check only.
+- Intel and macOS 12 compatibility are compile-target checks, not runtime tests on those systems. Gatekeeper first-download behavior and privileged installation were not interactively tested. The package is unsigned and the app ad-hoc signed; Apple Developer ID signing/notarization remains unavailable.
